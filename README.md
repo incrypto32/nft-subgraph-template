@@ -3,7 +3,7 @@
 
 - [Contract to index](https://etherscan.io/address/0x5180db8f5c931aae63c74266b211f580155ecac8#readContract)
 - [Google Slides for NFT Subgraph Development Workshop](https://docs.google.com/presentation/d/174VIStFqNiUTB5kV571ylJNXZLEPqSx8m7J0aydomTE/edit?usp=sharing)
-- Questions: **[twitter.com/schmid_si](https://twitter.com/schmid_si)**
+- Questions: **[twitter.com/incrypto32](https://twitter.com/incrypto32)**
 
 ## Prerequisites
 
