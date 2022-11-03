@@ -1,26 +1,32 @@
-type Approval @entity {
+type Transfer @entity(immutable: true) {
   id: ID!
-  owner: Bytes! # address
-  approved: Bytes! # address
-  tokenId: BigInt! # uint256
+  from: Owner!
+  to: Owner!
+  token: Token!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  transactionHash: Bytes!
 }
 
-type ApprovalForAll @entity {
+type Token @entity {
   id: ID!
-  owner: Bytes! # address
-  operator: Bytes! # address
-  approved: Boolean! # bool
+  owner: Owner!
+  uri: String
+  number: BigInt!
+  transfers: [Transfer!]! @derivedFrom(field: "token")
+  contract: Contract!
 }
 
-type OwnershipTransferred @entity {
+type Owner @entity {
   id: ID!
-  previousOwner: Bytes! # address
-  newOwner: Bytes! # address
+  ownedTokens: [Token!]! @derivedFrom(field: "owner")
+  balance: BigInt!
 }
 
-type Transfer @entity {
-  id: ID!
-  from: Bytes! # address
-  to: Bytes! # address
-  tokenId: BigInt! # uint256
+type Contract @entity {
+  id: Bytes!
+  name: String
+  symbol: String
+  totalSupply: BigInt!
+  mintedTokens: [Token!]! @derivedFrom(field: "contract")
 }
